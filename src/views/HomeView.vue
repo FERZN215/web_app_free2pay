@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-if="loaded">
     <img alt="Vue logo" src="../assets/logo.png">
     <button @click="get_name">Close</button>
     <p>{{nickname}}</p>
@@ -12,17 +12,18 @@
   
   const tg = window.Telegram.WebApp;
 export default {
-  
+  name: 'HomeView',
   mounted(){
     this.params = this.$route.query['id'];
     this.nickname = tg.initDataUnsafe.user.username;
+    this.loaded = true;
     
   },
-  name: 'HomeView',
   data(){
     return{
       nickname:"",
-      params:""
+      params:"",
+      loaded:false
     }
   },
 
