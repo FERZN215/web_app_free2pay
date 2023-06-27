@@ -8,13 +8,14 @@
 
 <script>
 // @ is an alias to /src
-  import { onMounted } from 'vue'
+  
   const tg = window.Telegram.WebApp;
-  onMounted(() => {
+export default {
+  
+  onMounted(){
     this.nickname = tg.initDataUnsafe.user.username;
     console.log(`the component is now mounted.`)
-  })
-export default {
+  },
   name: 'HomeView',
   data(){
     return{
