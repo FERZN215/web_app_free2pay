@@ -13,7 +13,7 @@
   const tg = window.Telegram.WebApp;
 export default {
   
-  beforeCreate(){
+  mounted(){
     this.params = this.$route.query['id'];
     this.nickname = tg.initDataUnsafe.user.username;
     
