@@ -12,7 +12,7 @@
   const tg = window.Telegram.WebApp;
 export default {
   
-  onMounted(){
+  mounted(){
     this.nickname = tg.initDataUnsafe.user.username;
     console.log(`the component is now mounted.`)
   },
