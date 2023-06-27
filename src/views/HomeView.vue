@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <button @click="get_name">Close</button>
     <p>{{nickname}}</p>
+    <p>Params: {{ params }}</p>
   </div>
 </template>
 
@@ -12,14 +13,16 @@
   const tg = window.Telegram.WebApp;
 export default {
   
-  mounted(){
+  beforeCreate(){
+    this.params = this.$route.query['id'];
     this.nickname = tg.initDataUnsafe.user.username;
-    console.log(`the component is now mounted.`)
+    
   },
   name: 'HomeView',
   data(){
     return{
-      nickname:""
+      nickname:"",
+      params:""
     }
   },
 
