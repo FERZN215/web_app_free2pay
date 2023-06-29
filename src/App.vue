@@ -8,7 +8,7 @@
 
 <style>
 html{
-  background-color: var(--tg-theme-bg-color);
+  /* background-color: var(--tg-theme-bg-color); */
 
 }
 #app {
