@@ -8,7 +8,8 @@
 
 <style>
 html{
-  /* background-color: var(--tg-theme-bg-color); */
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
 
 }
 #app {
@@ -16,7 +17,7 @@ html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #ffffff;
+  color: var(--tg-theme-text-color);
 } 
 
 nav {

@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="../assets/logo.png">
     <button @click="get_name">Close</button>
     <p>Nick {{nickname}}</p>
-    <p>Params: {{ params }}</p>
+
     <div class = "offers">
       <p>OFFERS</p>
       <div class="offer" v-for="offer in offers" :key="offer">
