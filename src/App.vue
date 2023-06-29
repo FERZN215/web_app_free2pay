@@ -8,6 +8,8 @@
 
 <style>
 #app {
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-bg-color);
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
