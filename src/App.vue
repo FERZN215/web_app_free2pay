@@ -17,7 +17,7 @@ html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #ffffff;
-}
+} 
 
 nav {
   padding: 30px;

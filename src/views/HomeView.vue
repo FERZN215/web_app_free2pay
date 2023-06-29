@@ -12,7 +12,7 @@
     </div>
   </div>
 </template>
-
+ 
 <script>
 // @ is an alias to /src
   import serv from "../api/serv.js"
