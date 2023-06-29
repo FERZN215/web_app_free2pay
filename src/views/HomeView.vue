@@ -20,13 +20,14 @@
 export default {
   name: 'HomeView',
   async mounted(){
+    this.loaded = true;
     this.params = this.$route.query;
 
     this.nickname = tg?.initDataUnsafe?.user?.username;
     let resp = await serv.params(this.params);
     this.offers = resp.data;
 
-    this.loaded = true;
+    
 
    
   },
