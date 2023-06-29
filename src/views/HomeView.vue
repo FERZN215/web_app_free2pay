@@ -4,26 +4,38 @@
     <button @click="get_name">Close</button>
     <p>{{nickname}}</p>
     <p>Params: {{ params }}</p>
+    <div class = "offers">
+      <div class="offer" v-for="offer in offers" :key="offer">
+        <p>Cost: {{offer.cost }}</p>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-  
+  import serv from "../api/serv.js"
   const tg = window.Telegram.WebApp;
 export default {
   name: 'HomeView',
-  mounted(){
-    this.params = this.$route.query['id'];
-    this.nickname = tg.initDataUnsafe.user.username;
+  async mounted(){
+    this.params = this.$route.query;
+
+    this.nickname = tg?.initDataUnsafe?.user?.username;
+    let resp = await serv.params(this.params);
+    this.offers = resp.data;
+
     this.loaded = true;
-    
+
+   
   },
   data(){
     return{
+      params:{},
       nickname:"",
-      params:"",
-      loaded:false
+      loaded:false,
+      offers:[]
     }
   },
 
