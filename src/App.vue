@@ -7,9 +7,11 @@
 </template>
 
 <style>
-#app {
+html{
   background-color: var(--tg-theme-bg-color);
   color: var(--tg-theme-bg-color);
+}
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
