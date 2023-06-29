@@ -25,7 +25,7 @@ export default {
     this.loaded = true;
     this.params = this.$route.query;
 
-    this.nickname = tg?.initDataUnsafe?.user?.username;
+    this.nickname = tg.initDataUnsafe.user.username;
     // let resp = await serv.params(this.params);
     // this.offers = resp.data;
 
