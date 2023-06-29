@@ -2,7 +2,7 @@
   <div class="home" v-if="loaded">
     <img alt="Vue logo" src="../assets/logo.png">
     <button @click="get_name">Close</button>
-    <p>{{nickname}}</p>
+    <p>Nick {{nickname}}</p>
     <p>Params: {{ params }}</p>
     <div class = "offers">
       <div class="offer" v-for="offer in offers" :key="offer">
