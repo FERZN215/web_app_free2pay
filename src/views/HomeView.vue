@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-if="loaded">
+  <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <button @click="get_name">Close</button>
     <!-- <p>Nick {{nickname}}</p>
@@ -19,6 +19,7 @@
   const tg = window.Telegram.WebApp;
 export default {
   name: 'HomeView',
+  
   async mounted(){
     this.loaded = true;
     // this.params = this.$route.query;
