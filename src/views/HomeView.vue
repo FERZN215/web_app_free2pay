@@ -6,9 +6,18 @@
 
     <div class = "offers">
       <p>OFFERS</p>
-      <div class="offer" v-for="offer in offers" :key="offer">
-        <p>Cost: {{offer.cost }}</p>
-      </div>
+      
+      <table>
+        <tr>
+          <th>Продавец</th>
+          <th>Описание</th>
+          <th>Цена</th>
+          
+        </tr>
+        <tr v-for="offer in offers" :key="offer">
+          <td><a href="">{{offer["photos"]}}</a></td><td>{{ offer["description"] }}</td><td>{{ offer["cost"] }}</td>
+        </tr>
+      </table>
 
     </div>
   </div>
@@ -16,7 +25,7 @@
  
 <script>
 // @ is an alias to /src
-  // import serv from "../api/serv.js"
+  import serv from "../api/serv.js"
   const tg = window.Telegram.WebApp;
 export default {
   name: 'HomeView',
@@ -25,9 +34,9 @@ export default {
     this.loaded = true;
     this.params = this.$route.query;
 
-    this.nickname = tg.initDataUnsafe.user.username;
-    // let resp = await serv.params(this.params);
-    // this.offers = resp.data;
+    // this.nickname = tg.initDataUnsafe.user.username;
+    let resp = await serv.params(this.params);
+    this.offers = resp.data;
 
     
 
@@ -55,6 +64,6 @@ export default {
 <style>
 
 p{
-  color:white;
+  color:black;
 }
 </style>
