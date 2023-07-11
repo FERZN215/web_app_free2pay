@@ -1,8 +1,5 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+ 
   <router-view/>
 </template>
 
@@ -11,6 +8,8 @@ html{
   background-color: var(--tg-theme-bg-color);
   /* color: var(--tg-theme-text-color); */
   color: black;
+  padding: 0;
+  margin: 0;
 
 }
 #app {
