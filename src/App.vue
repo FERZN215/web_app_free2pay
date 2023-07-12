@@ -7,30 +7,22 @@
 html{
   background-color: var(--tg-theme-bg-color);
   /* color: var(--tg-theme-text-color); */
-  color: black;
-  padding: 0;
-  margin: 0;
+
+  padding: 0px;
+  margin: 0px;
 
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0px;
+  margin: 0px;
   text-align: center;
-  /* color: var(--tg-theme-text-color); */
-  color: black;
+  color: var(--tg-theme-text-color);
+  
 } 
 
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

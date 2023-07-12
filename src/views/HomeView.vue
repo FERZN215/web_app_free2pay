@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <div class = "offers">
-      <p>{{ this.nickname }}</p>
+  <div class="home" style="width: 100%;">
+    <div v-if="this.loaded" class = "offers" style="width: 100%;">
       <div v-if="this.params['game'] == 'game_lage2m'">
         <l2m_account :offers="this.offers"  v-if="this.params['pr_type'] == 'cat_accounts'"  />
       </div>
@@ -28,7 +27,7 @@ export default {
   async created(){
     tg.ready()
     tg.expand()
-    this.loaded = true;
+    
     this.params = this.$route.query;
     
 
@@ -37,7 +36,7 @@ export default {
     let resp = await serv.params(this.params);
     this.offers = resp.data;
 
-
+    this.loaded = true;
     
 
    
@@ -54,10 +53,9 @@ export default {
   },
 
   methods:{
-    go_back(id){
+    choose(id){
       tg.sendData(JSON.stringify(id))
-
-      console.log(id)
+      tg.close();
     },
     rating(a,b){
       return a.rating - b.rating;
@@ -89,7 +87,6 @@ export default {
         case "rev_rat":
           this.offers.sort(this.rev_rating)
           break;
-        
 
         default:
           alert( "Error" );
@@ -105,37 +102,49 @@ export default {
 </script>
 <style>
 table {
+  background-color: var(--tg-theme-secondary-bg-color);
+  color:var(--tg-theme-text-color);
   border-collapse: collapse;
   width: 100%;
 }
 
+th{
+  padding: 3px;
+  font-weight:normal;
+  /* Ссылка на имгур
+Орб,фиол карта, синий агатион,Lorem ipsum.... */
+
+}
 th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-left:  1px solid #ddd;;
+  
+  
+  border-bottom: 1px solid var(--tg-theme-hint-color);
+  
 }
 
 tr:hover {
-  background-color: #f5f5f5;
+  background-color: var(--tg-theme-bg-color);
 }
 
 th {
-  background-color: var(--tg-theme-secondary-bg-color);
-  color: white;
+  
+  color: var(--tg-theme-text-color);
 }
 
 .sort{
   background-color: #4caf4f00;
   border: none;
-  color:white
+  color:var(--tg-theme-text-color)
 }
 .sort:hover{
   color:gray;
 }
-
-p{
-  color:black;
+.name{
+  text-align: center;
 }
+.rating{
+  font-size: smaller;
+  color:var(--tg-theme-hint-color);
+}
+
 </style>
