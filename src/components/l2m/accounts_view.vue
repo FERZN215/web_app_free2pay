@@ -71,7 +71,11 @@ button{
     padding: 0px;
 }
 .level{
-    
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; 
     text-align: center;
 }
 .description{
@@ -81,6 +85,6 @@ button{
     font-size: smaller;
 }
 .lvl{
-    width: 53px;
+    width: 47px;
 }
 </style>

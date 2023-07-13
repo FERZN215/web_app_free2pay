@@ -13,8 +13,8 @@ html{
 
 }
 #app {
-  
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0px;

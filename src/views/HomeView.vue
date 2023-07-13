@@ -110,7 +110,10 @@ table {
 
 th{
   padding: 3px;
-  font-weight:normal;
+  font-size: 12px; 
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
   /* Ссылка на имгур
 Орб,фиол карта, синий агатион,Lorem ipsum.... */
 
@@ -140,6 +143,17 @@ th {
   color:gray;
 }
 .name{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+}
+.cost{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
   text-align: center;
 }
 .rating{
