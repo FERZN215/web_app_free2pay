@@ -43,7 +43,6 @@ export default {
   },
   data(){
     return{
-      game:"",
       params:{},
       nickname:"",
       loaded:false,
@@ -114,8 +113,7 @@ th{
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
-  /* Ссылка на имгур
-Орб,фиол карта, синий агатион,Lorem ipsum.... */
+
 
 }
 th, td {
