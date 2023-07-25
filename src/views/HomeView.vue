@@ -1,9 +1,16 @@
 <template>
   <div class="home" style="width: 100%;">
     <div v-if="this.loaded" class = "offers" style="width: 100%;">
-      <div v-if="this.params['game'] == 'game_lage2m'">
+      <div v-if="this.params['game'] == 'game_lage2m'"> 
         <l2m_account :offers="this.offers"  v-if="this.params['pr_type'] == 'cat_accounts'"  />
+        <l2m_diamods :offers="this.offers"  v-if="this.params['pr_type'] == 'cat_diamonds'"  />
+        <l2m_services :offers="this.offers"  v-if="this.params['pr_type'] == 'cat_services'"  />
+        <l2m_things :offers="this.offers"  v-if="this.params['pr_type'] == 'cat_things'"  />
       </div>
+
+     
+      
+      
 
     </div>
 
@@ -14,15 +21,22 @@
  
 <script>
 // @ is an alias to /src
+  import l2m_account from "../components/l2m/accounts_view.vue";
+  import l2m_diamods from "../components/l2m/diamonds_view.vue"
+  import l2m_services from "../components/l2m/services_view.vue"
+  import l2m_things from "../components/l2m/things_view.vue"
 
   import serv from "../api/serv.js"
   const tg = window.Telegram.WebApp;
 
-  import l2m_account from "../components/l2m/accounts_view.vue";
+  
 export default {
   name: 'HomeView',
   components:{
-    l2m_account
+    l2m_account,
+    l2m_diamods,
+    l2m_services,
+    l2m_things
   },
   async created(){
     tg.ready()
@@ -52,9 +66,18 @@ export default {
   },
 
   methods:{
+
     choose(id){
-      tg.sendData(JSON.stringify(id))
+      let info = {
+        game:this.params['game'],
+        category:this.params['pr_type'],
+        server:this.params['server'],
+        under_server:this.params['under_server'],
+        id
+      }
+      tg.sendData(JSON.stringify(info))
       tg.close();
+      
     },
     rating(a,b){
       return a.rating - b.rating;

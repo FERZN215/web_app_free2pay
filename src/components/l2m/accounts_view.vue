@@ -1,11 +1,12 @@
 <template>
     <div>
-        <button v-if="show == false && delay == false" @click="closeL()" class="acc_cat">ᐳ</button>
+        <button  @click="closeL()" class="acc_cat"> {{ show==false && delay == false ? "ᐳ" : "ᐸ"}}</button>
         
         <transition name="slide">
             
             
             <div v-if="show==true" class="acc_cat_sort_div">
+                
                 <div class="sort_block">
                     <input v-model="this.orb" @change="filt(this.orb, 'account_orb')" type="checkbox" name="acc_cat" value="orb">
                     <label for="orb">Орб</label>
@@ -47,7 +48,7 @@
                     <label for="other">Другое</label>
                 </div>
 
-                <button class="acc_cat" @click="open()">ᐸ</button>
+                
             </div>
         </transition>
         <transition name="slide">
@@ -130,12 +131,14 @@ export default {
     methods:{
         closeL(){
             this.show = !this.show;
-            this.delay=true;
+            if(this.delay == true){
+                setTimeout(()=>this.delay=false, 500)
+            }
+            else{
+                this.delay = true;
+            }
         },
-        open(){
-            this.show = !this.show;
-            setTimeout(()=>this.delay=false, 500)
-        },
+   
         level(a,b){
             return a["_doc"].level - b["_doc"].level;
         },
@@ -174,7 +177,7 @@ export default {
     }
 }
 </script>
-<style>
+<style >
 button{
     color:var(--tg-theme-text-color);
     padding: 0px;
@@ -210,7 +213,8 @@ button{
 
 
 .sort_block{
-    padding-left: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-top: 6px;
     padding-bottom: 6px;
     text-align: left;
@@ -227,6 +231,10 @@ button{
     
 }
 
+.sort_block input{
+
+    float: right;
+}
 /* Animation */
 
 .slide-enter-active {
